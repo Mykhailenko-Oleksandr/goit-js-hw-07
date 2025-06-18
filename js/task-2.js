@@ -25,18 +25,22 @@ const images = [
   }
 ];
 
-const gelery = document.querySelector('.gallery')
+const gellery = document.querySelector('.gallery')
 
-images.forEach(image => {
-  const item = document.createElement('li')
-  const imageItem = document.createElement("img");
-  imageItem.src = image.url;
-  imageItem.alt = image.alt;
-  imageItem.width = 360;
-  imageItem.height = 300;
-  item.append(imageItem);
-  gelery.append(item);
-})
+const itemEl = images.map(image => {
+  return `
+  <li><img
+  src="${image.url}" 
+  alt="${image.alt}"
+  width = 360
+  height = 300 />
+  </li >
+  `
+}).join('')
+
+
+gellery.insertAdjacentHTML('beforeend', itemEl)
+
 
 
 
